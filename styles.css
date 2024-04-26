@@ -68,9 +68,9 @@ article>button {
 }
 section{
     max-width: 1000px;
+    margin-bottom: 50px;
 }
 .button-recargar{
     margin-top: 40px;
     font-size: 20px;
-    margin-bottom: 70px;
 }

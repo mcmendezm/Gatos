@@ -1,4 +1,4 @@
-const API_URI_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=6&api_key=live_SKNh4ecOmMsCiIQnnkolKGVZwYv2Aix94Ir6tAPU4fKWIVIXXL9hvYBhXDPXnUnb';
+const API_URI_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=6';
 const API_URI_FAVORITES = 'https://api.thecatapi.com/v1/favourites?api_key=live_SKNh4ecOmMsCiIQnnkolKGVZwYv2Aix94Ir6tAPU4fKWIVIXXL9hvYBhXDPXnUnb';
 const API_URI_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_SKNh4ecOmMsCiIQnnkolKGVZwYv2Aix94Ir6tAPU4fKWIVIXXL9hvYBhXDPXnUnb`;
 
@@ -40,16 +40,22 @@ async function loadRandomMichis() {
         }
 }
 async function loadFavouritesMichis() {
-    const respuesta = await fetch(API_URI_FAVORITES);
+    const respuesta = await fetch(API_URI_FAVORITES, {
+        method: 'GET',
+        headers: {
+            'X-API-KEY':'live_SKNh4ecOmMsCiIQnnkolKGVZwYv2Aix94Ir6tAPU4fKWIVIXXL9hvYBhXDPXnUnb'
+        }
+    });
     const data = await respuesta.json()
     console.log("favorito")
     console.log(data);
+    const div = document.getElementById('favoutites');
+            div.innerHTML = "";
     if (respuesta.status !== 200) {
         spanError.innerHTML = "Hubo un error: " + respuesta.status + " " + data.message;
     } else {
         data.forEach(element => {
             
-            const div = document.getElementById('favoutites');
             const article = document.createElement('article');
             const img = document.createElement('img');
             const button = document.createElement('button');
@@ -88,7 +94,7 @@ async function saveFavouriteMichis(id) {
     }
 }
 async function deleteFavouriteMichi(id) {
-       const respuesta = await fetch(API_URI_FAVORITES_DELETE(id), {
+    const respuesta = await fetch(API_URI_FAVORITES_DELETE(id), {
         method: 'DELETE',
     });
     const data = await respuesta.json();
@@ -100,6 +106,8 @@ async function deleteFavouriteMichi(id) {
         spanError.innerHTML = "Hubo un error: " + respuesta.status + " " + data.message;
     } else {
         console.log("Michi eliminado de favoritos")
+        loadFavouritesMichis();
     }
 }
 loadRandomMichis();
+loadFavouritesMichis();
