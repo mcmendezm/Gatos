@@ -41,15 +41,17 @@
         </div>
         
     </section>
-    <section id="uploadingForm">
-        <h2>Sube tus propias imagenes</h2>
-        <input id="file" type="file" name="file">
-        <button type="button">Subir imagen</button>
-    </section>
+    <section id="uploadingMichi">
+    <h2>Sube tus propias imágenes</h2>
+    <form id="uploadingForm">
+        <input id="file" type="file" name="file" onchange="previewMichiPhoto(event)">
+        <img id="previewImage" src="#" alt="Vista previa de la imagen" style="display: none; max-width: 50px; max-height: 50px;">
+        <button type="button" onclick="uploadMichiPhoto()">Subir imagen</button>
+    </form>
+</section>
     <section id="favoriteMichis">
         <h2>Gatitos Favoritos</h2>
         <div class="gallery " id="favoutites">
-
         </div>
     </section>
     <script src="./main.js"></script>
