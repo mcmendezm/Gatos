@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatos</title>
+    <link rel="icon" href="./img/icons8-gato-100.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>App de Gatitos</h1>
+    <section id="randomMichis">
+        <h2>Imagenes de Gatitos Aleatorios</h2>
+        <span id="error"></span>
+        <div class="gallery">
+        <article>
+            <img id="img1"  alt="Foto de gatito aleatorio">
+            <button id="btn1">Guardar</button>
+        </article>
+        <article>
+            <img id="img2"  alt="Foto de gatito aleatorio">
+            <button id="btn2">Guardar</button>
+        </article>
+        <article>
+            <img id="img3"  alt="Foto de gatito aleatorio">
+            <button id="btn3">Guardar</button>
+        </article>
+        <article>
+            <img id="img4"  alt="Foto de gatito aleatorio">
+            <button id="btn4">Guardar</button>
+        </article>
+        <article>
+            <img id="img5"  alt="Foto de gatito aleatorio">
+            <button id="btn5">Guardar</button>
+        </article>
+        <article>
+            <img id="img6"  alt="Foto de gatito aleatorio">
+            <button id="btn6">Guardar</button>
+        </article>
+        <button onclick="loadRandomMichis()" class="button-recargar">Recargar</button>
+        </div>
+        
+    </section>
+    <section id="favoriteMichis">
+        <h2>Gatitos Favoritos</h2>
+        <div class="gallery " id="favoutites">
+
+        </div>
+    </section>
+    <script src="./main.js"></script>
+</body>
+</html>
